@@ -3,6 +3,8 @@ import 'home_screen.dart';
 import 'search_screen.dart';
 
 class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
+
   @override
   _MainScreenState createState() => _MainScreenState();
 }
@@ -11,8 +13,8 @@ class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
   final PageController _pageController = PageController();
   final List<Widget> _tabs = [
-    HomeScreen(),
-    SearchScreen(),
+    const HomeScreen(),
+    const SearchScreen(),
   ];
 
   @override
@@ -40,13 +42,13 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
         currentIndex: _currentIndex,
-        selectedItemColor: Color.fromRGBO(229, 9, 20, 1),
+        selectedItemColor: const Color.fromRGBO(229, 9, 20, 1),
         onTap: (index) {
           setState(() {
             _currentIndex = index;
             _pageController.animateToPage(
               index,
-              duration: Duration(milliseconds: 500),
+              duration: const Duration(milliseconds: 500),
               curve: Curves.ease,
             );
           });

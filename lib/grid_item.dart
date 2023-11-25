@@ -1,12 +1,10 @@
-// grid_item.dart
 import 'package:flutter/material.dart';
-import 'details_screen.dart'; // Import the DetailsScreen
-//import 'package:flutter_html/flutter_html.dart';
+import 'details_screen.dart';
 
 class GridItem extends StatelessWidget {
   final dynamic movie;
 
-  GridItem({required this.movie});
+  const GridItem({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +24,6 @@ class GridItem extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Big Image
               imageObj != null
                   ? Image.network(
                       imageObj['medium'],
@@ -35,10 +32,9 @@ class GridItem extends StatelessWidget {
                       height: 150,
                     )
                   : Container(
-                      color: Colors.grey, // Placeholder color
+                      color: Colors.grey,
                       height: 150,
                     ),
-              // Title
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4.0),
                 child: Text(
@@ -55,11 +51,5 @@ class GridItem extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  String _getSummaryLines(String summary) {
-    // Split summary into lines and return the first 3 lines
-    List<String> lines = summary.split('\n');
-    return lines.length >= 3 ? lines.sublist(0, 3).join('\n') : summary;
   }
 }

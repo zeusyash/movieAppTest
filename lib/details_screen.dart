@@ -1,12 +1,10 @@
-// details_screen.dart
-
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart';
 
 class DetailsScreen extends StatelessWidget {
   final dynamic movie;
 
-  DetailsScreen(this.movie);
+  const DetailsScreen(this.movie, {super.key});
   String parseHtml(String htmlString) {
     var document = parse(htmlString);
     return parse(document.body!.text).documentElement!.text;
@@ -29,7 +27,7 @@ class DetailsScreen extends StatelessWidget {
                     height: 600,
                   )
                 : Container(
-                    color: Colors.grey, // Placeholder color
+                    color: Colors.grey,
                     height: 600,
                   ),
             Padding(
@@ -39,7 +37,6 @@ class DetailsScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 18),
               ),
             ),
-            // Add more details here
           ],
         ),
       ),
